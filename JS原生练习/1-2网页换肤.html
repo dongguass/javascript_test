@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      width: 100%;
+      text-align: center;
+    }
+
+    .clearfix::after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    #app ul {
+      display: inline-block;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      background-color: white;
+      border: 1px white solid;
+    }
+
+    #app ul>li {
+      float: left;
+      margin-left: 20px;
+    }
+
+    #app ul>li:last-child {
+      margin-right: 20px;
+    }
+
+    #app>div {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      position: relative;
+    }
+
+    #app>div>div {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      left: 50%;
+      top: 50%;
+      margin-left: -4px;
+      margin-top: -4px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div style="background-color: rgb(230, 89, 64);">
+      <div style="background-color: white;"></div>
+    </div>
+    <div style="background-color: rgba(126, 126, 216, 0.712);">
+      <div style="background-color: white;"></div>
+    </div>
+    <div style="background-color: salmon;">
+      <div style="background-color: white;"></div>
+    </div>
+    <ul class="clearfix">
+      <li>新闻</li>
+      <li>娱乐</li>
+      <li>体育</li>
+      <li>电竞</li>
+      <li>旅游</li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function () {
+      let that;
+      let app = document.getElementById('app')
+      let blocks = document.querySelectorAll('#app>div')
+      let blocksChild = document.querySelectorAll('#app>div>div')
+      let li = app.getElementsByTagName('li')
+      for (let i = 0; i < blocks.length; i++) {
+        blocks[i].onclick = backChange(i)
+      }
+
+      function backChange(i) {
+        return function () {
+          document.body.style.backgroundColor = event.currentTarget.style.backgroundColor
+          for(let j=0;j<li.length;j++){
+            li[j].style.backgroundColor = event.currentTarget.style.backgroundColor
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

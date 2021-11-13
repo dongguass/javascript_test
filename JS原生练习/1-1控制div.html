@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .block {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <button>变宽</button>
+  <button>变高</button>
+  <button>变色</button>
+  <button>隐藏</button>
+  <button>重置</button>
+  <div class="block" title="nihao" style="background-color: red;">
+  </div>
+  <script>
+    function controlBlock(button) {
+      switch (button.innerText) {
+        case '变宽': {
+          return function () {
+            block[0].style.width = 400 + 'px'
+          }
+          break
+        }
+        case '变高': {
+          return function () {
+            block[0].style.height = 400 + 'px'
+          }
+          break
+        }
+        case '变色': {
+          return function () {
+            block[0].style.backgroundColor = 'blue'
+          }
+          break
+        }
+        case '隐藏': {
+          return function () {
+            block[0].style.display = 'none'
+          }
+          break
+        }
+        case '重置': {
+          return function () {
+            block[0].style = startStyle
+          }
+          break
+        }
+      }
+    }
+    window.onload = function () {
+      // getElementsByClassName这个方法永远获取都是一个HTMLcollection集合
+      let block = document.getElementsByClassName('block')
+      let btns = document.getElementsByTagName('button')
+      let startStyle = block[0].style
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].onclick = controlBlock(btns[i]);
+      }
+    }
+  </script>
+</body>
+
+</html>
