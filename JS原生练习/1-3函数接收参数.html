@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      margin: 0 auto;
+      width: 50%;
+    }
+    #app input{
+      display: block;
+      margin: 5px auto;
+    }
+    #app button{
+      display: block;
+      margin: 0 auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text">
+    <input type="text">
+    <button id="submit">传参</button>
+  </div>
+  <script>
+    let inputs = document.querySelectorAll('input')
+    let submit = document.getElementById('submit')
+    submit.onclick = function(){
+      if(!inputs[0].value || !inputs[1].value){
+        alert('请输入数据')
+        return
+      }
+      accept(inputs[0].value, inputs[1].value)
+    }
+
+    function accept(value1 , value2){
+      alert(value1.concat(value2))
+    }
+  </script>
+</body>
+
+</html>
