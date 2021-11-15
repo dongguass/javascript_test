@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      width: 100%;
+    }
+    #app div{
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div></div>
+    <div></div>
+    <div></div>
+    <button id="change">变色</button>
+  </div>
+  <script>
+    let divs = document.querySelectorAll('#app>div')
+    let btn = document.getElementById('change')
+    btn.onclick = function(){
+      for(let i=0;i<divs.length;i++){
+        setTimeout(() => {
+          divs[i].style.backgroundColor = 'red'
+        }, 1000*(i+1));
+      }
+    }
+    console.log(document.styleSheets)
+  </script>
+</body>
+</html>
