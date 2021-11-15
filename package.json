@@ -1,0 +1,27 @@
+{
+  "name": "javascript_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongguass/javascript_test.git"
+  },
+  "author": "ydh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dongguass/javascript_test/issues"
+  },
+  "homepage": "https://github.com/dongguass/javascript_test#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
+}
