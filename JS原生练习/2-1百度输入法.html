@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      width: 200px;
+      margin: 0 auto;
+    }
+    #app a{
+      color: inherit;
+      text-decoration: none;
+    }
+    #app>ul{
+      list-style: none;
+      border: 1px solid aquamarine;
+      padding: 0;
+      margin: 5px 2px;
+      text-align: center;
+      width: 50px;
+    }
+    #app>ul>li{
+      border-bottom: 1px solid aquamarine;
+    }
+    #app>ul>li:last-child{
+      border: none;
+    }
+    #app>ul>li:hover{
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button id="btn">输入法</button>
+    <ul style="display: block;">
+      <li><a href="javascript:">手写</a></li>
+      <li><a href="javascript:">拼音</a></li>
+      <li><a href="javascript:">关闭</a></li>
+    </ul>
+  </div>
+  <script>
+    let btn = document.getElementById('btn')
+    let list = document.querySelector('#app>ul')
+    let closed = document.querySelector('#app>ul>li:last-child')
+    let style = list.style
+    btn.onclick = function(){
+      style.display = style.display === 'block'? 'none':'block'
+    }
+    closed.onclick = function(){
+      style.display = "none"
+    }
+  </script>
+</body>
+
+</html>
