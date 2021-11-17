@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      width: 100%;
+      position: relative;
+    }
+    #app label{
+      display: block;
+      margin: 10px 0;
+    }
+    #app .target{
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+    }
+    #app>.container{
+      position: absolute;
+      left: 50%;
+      margin-left: -151px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <label for="title">
+        属性名
+        <input type="text" id="title">
+      </label>
+      <label for="number">
+        属性值
+        <input type="text" id="number">
+      </label>
+      <button>确定</button>
+      <button>重置</button>
+      <div class="target">在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</div>
+    </div>
+    <script>
+      let btns = document.querySelectorAll('.container button')
+      let ints = document.querySelectorAll('.container input')
+      let target = document.getElementsByClassName('target')
+      btns[0].onclick = function(){
+        target[0].style[ints[0].value] = ints[1].value
+      }
+      btns[1].onclick = function(){
+        target[0].removeAttribute('style')
+      }
+    </script>
+  </div>
+</body>
+</html>

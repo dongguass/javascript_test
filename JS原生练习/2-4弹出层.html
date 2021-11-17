@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    #app>button{
+      position: absolute;
+      left: 50%;
+    }
+    .layout{
+      width: 1920px;
+      height: 1080px;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: relative;
+      display: none;
+    }
+    .layout>.content{
+      width: 300px;
+      height: 200px;
+      border: 5px solid orange;
+      background-color: papayawhip;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -100px;
+    }
+    .layout>.content::before{
+      content: " ";
+      display: block;
+      width: 300px;
+      height: 20px;
+      background-color: white;
+      z-index: 999;
+      border-bottom: 5px solid orange;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button>弹出</button>
+  </div>
+  <div class="layout">
+    <div class="content"></div>
+  </div>
+  <script>
+    let app = document.getElementById('app')
+    let lay = document.getElementsByClassName('layout')
+    console.log(document.styleSheets)
+    let layoutStyle = document.styleSheets[0].cssRules[2].style
+    app.onclick = function(){
+      layoutStyle.display = 'block'
+    }
+    lay[0].onclick = function(event){
+      if(event.target === event.currentTarget){
+        layoutStyle.display = 'none'
+      }
+    }
+  </script>
+</body>
+</html>

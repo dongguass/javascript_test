@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <button id="btn">点击</button>
   <script>
     let btn = document.getElementById('btn')
     //func是防抖的函数
-    const debounce = (func,wait = 1000,a,b)=>{
+    const debounce = (func, wait = 1000, a, b) => {
       let timer = 0
       let nums = []
-          nums.push(a)
-          nums.push(b)
-      return function(){
-        if(timer) clearTimeout(timer)
-        timer = setTimeout(()=>{
-          func.apply(this,nums)
-        },wait)
+      nums.push(a)
+      nums.push(b)
+      //闭包
+      return function () {
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(() => {
+          func.apply(this, nums)
+        }, wait)
       }
     }
 
-    function test(a,b){
-      console.log(a,b)
-      console.log(a+b)
+    function test(a, b) {
+      console.log(a, b)
+      console.log(a + b)
     }
 
-    btn.onclick = debounce(test,2000,1,2)
+    btn.onclick = debounce(test, 2000, 1, 2)
 
   </script>
+
 </body>
+
 </html>
