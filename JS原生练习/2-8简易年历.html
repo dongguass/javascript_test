@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .clearfix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    #app{
+      width: 248px;
+      background-color: #eaeaea;
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+    #app>ul{
+      list-style: none;
+      padding: 0;
+    }
+    #app>ul>li{
+      margin: 5px 5px;
+      float: left;
+      width: 40px;
+      height: 40px;
+      background-color: #424242;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+    #app>ul>li:hover{
+      color: #ff6699;
+      background-color: white;
+    }
+    #app>.content{
+      width: 80%;
+      height: 80px;
+      background-color: #f1f1f1;
+      border: 1px solid white;
+      padding: 5px;
+      margin: 5px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul class="clearfix">
+      <li>
+        <div>1</div>
+        <div>JAN</div>
+      </li>
+      <li>
+        <div>2</div>
+        <div>FER</div>
+      </li>
+      <li>
+        <div>3</div>
+        <div>MAR</div>
+      </li>
+      <li>
+        <div>4</div>
+        <div>APR</div>
+      </li>
+      <li>
+        <div>5</div>
+        <div>MAY</div>
+      </li>
+      <li>
+        <div>6</div>
+        <div>JUN</div>
+      </li>
+      <li>
+        <div>7</div>
+        <div>JUL</div>
+      </li>
+      <li>
+        <div>8</div>
+        <div>AUG</div>
+      </li>
+      <li>
+        <div>9</div>
+        <div>SEP</div>
+      </li>
+      <li>
+        <div>10</div>
+        <div>OCT</div>
+      </li>
+      <li>
+        <div>11</div>
+        <div>NOV</div>
+      </li>
+      <li>
+        <div>12</div>
+        <div>DEC</div>
+      </li>
+    </ul>
+    <div class="content"></div>
+  </div>
+
+  <script>
+    let oArray = [
+        "元旦：1月1日至3日放假三天。",
+        "春节：2月2日至8日放假7天。",
+        "妇女节：3月8日妇女节，与我无关。",
+        "清明节：4月3日至5日放假3天",
+        "劳动节：4月30日至5月2日放假3天。",
+        "端午节：6月4日至6日放假3天。",
+        "小暑：7月7日小暑。不放假。",
+        "七夕节：8月6日七夕节。不放假。",
+        "中秋节：9月10日至12日放假3天。",
+        "国庆节：10月1日至7日放假7天。",
+        "立冬：11月8日立冬。不放假。",
+        "艾滋病日:12月1日<br />         废除奴隶制国际日:12月2日。"
+    ];
+    window.onload = function(){
+      let lis = document.querySelectorAll('#app>ul>li')
+      let divs = document.getElementsByClassName('content')
+      for(let i=0;i<lis.length;i++){
+        lis[i].onmouseover = function(){
+          divs[0].innerHTML = oArray[i]
+        }
+      }
+    }
+  </script>
+</body>
+</html>

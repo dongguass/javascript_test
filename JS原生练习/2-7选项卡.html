@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      width: 600px;
+      margin: 0 auto;
+    }
+    #app>.title{
+      width: 100%;
+      height: 50px;
+      background-color: black;
+    }
+    #app>.title>span{
+      text-align: center;
+      display: inline-block;
+      height: 50px;
+      color: white;
+      padding: 0 20px;
+      line-height: 50px;
+      cursor: pointer;
+    }
+    #app>.title>span:hover{
+      background-color: gray;
+    }
+    #app>ul{
+      border: 1px solid black;
+      margin: 0;
+      padding: 0 20px;
+    }
+    #app>ul>li{
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="title">
+      <span>第一课</span>
+      <span>第二课</span>
+      <span>第三课</span>
+    </div>
+    <ul>
+      <li>网页特效原理分析</li>
+      <li>响应用户操作</li>
+      <li>提示框效果</li>
+      <li>事件驱动</li>
+      <li>事件驱动</li>
+      <li>动手编写第一个JS特效</li>
+      <li>动手编写第一个JS特效</li>
+    </ul>
+    <ul style="display: none;">
+      <li>网页特效原理分析</li>
+      <li>响应用户操作</li>
+      <li>提示框效果</li>
+      <li>事件驱动</li>
+      <li>事件驱动</li>
+      <li>动手编写第一个JS特效</li>
+      <li>动手编写第一个JS特效</li>
+      <li>字符串连接</li>
+    </ul>
+    <ul style="display: none;">
+      <li>网页特效原理分析</li>
+      <li>响应用户操作</li>
+      <li>提示框效果</li>
+      <li>事件驱动</li>
+      <li>事件驱动</li>
+      <li>动手编写第一个JS特效</li>
+      <li>动手编写第一个JS特效</li>
+      <li>字符串连接</li>
+    </ul>
+  </div>
+  <script>
+    let spans = document.querySelectorAll('#app>.title>span')
+    let uls = document.querySelectorAll('#app>ul')
+    for(let i=0;i<spans.length;i++){
+      spans[i].onmouseover = function(){
+        for(let j=0;j<uls.length;j++){
+          uls[j].style.display = 'none'
+        }
+        uls[i].style.display = 'block'
+      }
+    }
+  </script>
+</body>
+</html>
