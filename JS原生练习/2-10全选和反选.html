@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body,
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    #app {
+      width: 220px;
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+
+    #app span {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li>
+        <input type="checkbox" id="title" />
+        <label for="title">全选</label>
+        <span>反选</span>
+      </li>
+      <li>
+        <input type="checkbox" id="title1" />
+        <label for="title1">选项一</label>
+      </li>
+      <li>
+        <input type="checkbox" id="title2" />
+        <label for="title2">选项二</label>
+      </li>
+      <li>
+        <input type="checkbox" id="title3" />
+        <label for="title3">选项三</label>
+      </li>
+      <li>
+        <input type="checkbox" id="title4" />
+        <label for="title4">选项四</label>
+      </li>
+    </ul>
+    <script>
+      window.onload = function () {
+        let checkAll = document.getElementById('title')
+        let checkboxs = document.querySelectorAll('#app>ul>li:not(li:first-child)>input')
+        let checkout = document.querySelector('#app>ul span')
+        let labels = document.querySelector('#app>ul>li:first-child>label')
+        checkAll.onclick = function () {
+          if (checkAll.checked) {
+            checkboxs.forEach((item) => {
+              item.checked = true
+            })
+            labels.innerHTML = '全不选'
+          } else {
+            checkboxs.forEach((item) => {
+              item.checked = false
+            })
+            labels.innerHTML = '全选'
+          }
+        }
+        checkout.onclick = function () {
+          if (checkAll.checked === true) {
+            checkAll.checked = false
+            checkboxs.forEach((item) => {
+              item.checked = false
+            })
+            labels.innerHTML = '全选'
+          } else {
+            checkAll.checked = true
+            checkboxs.forEach((item) => {
+              item.checked = true
+            })
+            labels.innerHTML = '全不选'
+          }
+        }
+
+        for (let i = 0; i < checkboxs.length; i++) {
+          checkboxs[i].onclick = function () {
+            if (Array.from(checkboxs).every(function(item){return item.checked == true})) {
+              checkAll.checked = true
+            } else {
+              checkAll.checked = false
+            }
+          }
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>
