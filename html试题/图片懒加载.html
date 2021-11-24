@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .app {
+      width: 200px;
+      height: 2000px;
+      background-color: aquamarine;
+      position: relative;
+    }
+
+    .app img {
+      position: absolute;
+      top: 1500px;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <img data-src="../img/1.jpg" id="test">
+  </div>
+  <script>
+    // 使用getBoundingClientRect API 和 dataset API实现懒加载
+    let imgs = document.getElementById('test')
+    window.onscroll = function () {
+      console.log('1')
+      if (imgs.getBoundingClientRect().top < document.documentElement.clientHeight) {
+        const timer = setTimeout(() => {
+          if (timer) {
+            clearTimeout(timer)
+          }
+          imgs.src = imgs.dataset.src
+        }, 1000)
+      }
+    }
+
+    //IntersectionObserver API + DataSet API 该方法还不会
+  </script>
+</body>
+
+</html>
