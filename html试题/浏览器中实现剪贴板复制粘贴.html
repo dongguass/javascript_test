@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .app{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <span>ssss</span>
+  <div class="app"></div>
+  <script>
+    let divs = document.getElementsByClassName('app')
+    // 将文本内容写入剪切板中,Clipboard 接口实现了 Clipboard API，如果用户授予了相应的权限，就能提供系统剪贴板的读写访问。
+    //系统剪贴板暴露于全局属性 Navigator.clipboard 之中。
+    navigator.clipboard.writeText('你好呀')
+    // 获取剪切板的内容需要获得clipboard-read权限,要调用Permissions API查询是否有权限,返回的是一个promise对象解决值是PermissionStatus object。
+    navigator.permissions.query({name: 'clipboard-read'}).then(result=>{
+      console.log('1')
+      if(result.state === 'granted' || result.state == "prompt"){
+          navigator.clipboard.readText().then(clibtext =>{
+          console.log('2')
+          divs[0].innerHTML = clibtext
+        })
+      }else{
+        console.log('3')
+      }
+    })
+  </script>
+</body>
+</html>
