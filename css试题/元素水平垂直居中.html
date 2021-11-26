@@ -14,12 +14,12 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      /* transform: translate(-50%,-50%); 使用translate */
+      /* transform: translate(-50%,-50%); 当元素高度未知时建议使用使用translate */
       /* 使用margin  取值为宽高的一半*/
       margin-left: -100px;
       margin-top: -100px;
     }
-    /* 第二种方法 flex布局 给要居中的元素的父元素设置 */
+    /* 第二种方法 flex布局 给要居中的元素的父元素设置,该方法也支持行内元素*/
     /* body{
       display: flex;
       align-items: center;
