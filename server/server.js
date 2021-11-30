@@ -1,12 +1,18 @@
-const express = require('express')
-const app= express()
+const http = require('http')
+const port = 3000
 
+const server = http.createServer()
 
-app.get('/',(req,res)=>{
-  res.set({'Access-Control-Allow-Origin':'*'})
-  res.send('Hello World')
+server.on('request',function(req,res){
+  if(req.url === '/'){
+    res.setHeader('status','200 OK')
+    res.setHeader('Set-Cookie','cookieid=2021ydh;max-age = 1000')
+    res.setHeader('Access-Control-Allow-Origin',req.headers.origin)
+    res.write('你好，接好cookie')
+    res.end()
+  }
 })
 
-app.listen(3000,()=>{
-  console.log('is running in 3000 port')
+server.listen(port,()=>{
+  console.log(`运行在${port}端口`)
 })
