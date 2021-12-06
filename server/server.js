@@ -5,10 +5,8 @@ const server = http.createServer()
 
 server.on('request',function(req,res){
   if(req.url === '/'){
-    res.setHeader('status','200 OK')
-    res.setHeader('Set-Cookie','cookieid=2021ydh;max-age = 1000')
-    res.setHeader('Access-Control-Allow-Origin',req.headers.origin)
-    res.write('你好，接好cookie')
+    res.setHeader('Access-Control-Allow-Origin','*')
+    res.write('asdasdasasd')
     res.end()
   }
 })

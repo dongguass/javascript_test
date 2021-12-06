@@ -32,18 +32,16 @@
     <div class="area"></div>
   </div>
   <script>
-    document.cookie = 'sid = ydh1999'
     let btn = document.querySelector('.text>button')
     let ar = document.querySelector('.text>.area')
     btn.onclick = function(event){
       let xml = new XMLHttpRequest()
       xml.open('GET','http://localhost:3000/',true)
       // xml.setRequestHeader('Cookie',document.cookie)
-      xml.send()
+      xml.send('123')
       xml.onreadystatechange = function(){
         if(xml.readyState ===4 && xml.status ===200){
            ar.innerHTML = xml.responseText
-           console.log(document.cookie)
         }
       }
     }
