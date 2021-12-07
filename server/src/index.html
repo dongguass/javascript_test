@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .text{
+    .text {
       width: 50%;
       height: 50%;
       margin: 0 auto;
@@ -14,37 +15,62 @@
       text-align: center;
     }
 
-    .text button{
+    .text button {
       margin-top: 20px;
     }
 
-    .text>.area{
+    .text>.area {
       width: 300px;
       height: 200px;
-      border: 1px solid black;
+      border: 1px solid palegreen;
       margin: 0 auto;
     }
   </style>
 </head>
+
 <body>
   <div class="text">
-    <button>点击获取信息</button>
+    <button id="btn">点击获取信息</button>
     <div class="area"></div>
   </div>
-  <script>
-    let btn = document.querySelector('.text>button')
-    let ar = document.querySelector('.text>.area')
-    btn.onclick = function(event){
-      let xml = new XMLHttpRequest()
-      xml.open('GET','http://localhost:3000/',true)
-      // xml.setRequestHeader('Cookie',document.cookie)
-      xml.send('123')
-      xml.onreadystatechange = function(){
-        if(xml.readyState ===4 && xml.status ===200){
-           ar.innerHTML = xml.responseText
-        }
-      }
-    }
-  </script>
 </body>
+<script>
+  let btn = document.getElementById('btn')
+  let ar = document.querySelector('.text>.area')
+  btn.onclick = function(){
+    // let result = fetch('http://localhost:3000/')
+    // result.then((response)=>{
+    //   response.text()
+    // }).then((data)=>{
+    //   console.log(data)
+    // })
+
+    // let result = fetch('test.txt')
+    // result.then((response)=>{
+    //   console.log(response.status)
+    //   response.text()
+    // }).then((data)=>{
+    //   console.log(data)
+    // })
+
+    //1. 发送JSON数据
+    let prayload = JSON.stringify({
+      foo: 'bar'
+    })
+    console.log(prayload)
+    //Fetch API中设置请求头，header必须是一个键值对对象
+    let jsonHeader = new Headers({
+      'Content-Type':'application/json'
+    })
+    //跨源 要设置mode配置项
+    fetch('http://localhost:3000/jsons',{
+      method: 'POST',
+      headers: jsonHeader,
+      body: prayload,
+      mode: "cors"
+    }).then((Response)=>{
+      console.log(Response)
+    })
+  }
+</script>
 </html>

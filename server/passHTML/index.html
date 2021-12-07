@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .text{
+      width: 50%;
+      height: 50%;
+      margin: 0 auto;
+      border: 1px solid antiquewhite;
+      text-align: center;
+    }
+
+    .text button{
+      margin-top: 20px;
+    }
+
+    .text>.area{
+      width: 300px;
+      height: 200px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="text">
+    <button>点击获取信息</button>
+    <div class="area"></div>
+  </div>
+  <!-- <script src="http://localhost:3000/api?callback=jsonp"></script> -->
+  <script>
+    let btn = document.querySelector('.text>button')
+    let ar = document.querySelector('.text>.area')
+    btn.onclick = function(event){
+      let url = 'http://localhost:3000/a?'
+      url += encodeURIComponent('name')+ "=" + encodeURIComponent('ydh')
+      let xml = new XMLHttpRequest()
+      xml.open('GET',url,true)
+      // xml.setRequestHeader('Cookie',document.cookie)
+      xml.withCredentials = true
+      xml.send('123')
+      xml.onreadystatechange = function(){
+        if(xml.readyState ===4 && xml.status ===200){
+          console.log(document.cookie)
+           ar.innerHTML = xml.responseText
+        }
+      }
+    }
+
+    // function jsonp(data){
+    //   console.log(data)
+    // }
+  </script>
+</body>
+</html>
