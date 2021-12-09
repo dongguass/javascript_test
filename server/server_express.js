@@ -22,12 +22,13 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/jsons',(req,res)=>{
+  let data = '接收到JSON数据了'
   res.set({
     'Access-Control-Allow-Origin':'*',
     "Access-Control-Allow-Methods":"POST, GET, PUT, OPTIONS, DELETE"
   })
-  console.log(req.body)
-  res.send('jiedao json l ')
+  // console.log(req.body)
+  res.send(data)
 })
 
 app.listen(port,()=>{

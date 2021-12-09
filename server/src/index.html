@@ -52,24 +52,32 @@
     // }).then((data)=>{
     //   console.log(data)
     // })
+    
+    
 
     //1. 发送JSON数据
     let prayload = JSON.stringify({
       foo: 'bar'
     })
-    console.log(prayload)
+    // console.log(prayload)
     //Fetch API中设置请求头，header必须是一个键值对对象
     let jsonHeader = new Headers({
       'Content-Type':'application/json'
     })
+    //创建Request对象
+    let r = new Request('http://localhost:3000/jsons',{method: 'POST',body: prayload,})
+    console.log(r);
     //跨源 要设置mode配置项
-    fetch('http://localhost:3000/jsons',{
+    fetch(r,{
       method: 'POST',
       headers: jsonHeader,
-      body: prayload,
       mode: "cors"
     }).then((Response)=>{
       console.log(Response)
+      console.log(r)
+      Response.text().then((data)=>{
+        ar.innerHTML = data
+      })
     })
   }
 </script>
