@@ -7,9 +7,27 @@
   <title>Document</title>
 </head>
 <body>
-  <canvas id="drawing">A drowing of something</canvas>
+  <canvas id="drawing" style="height: 300px;">A drowing of something</canvas>
   <script>
-    let 
+    /** @type {HTMLCanvasElement} */
+    let draw = document.getElementById('drawing')
+    let context = draw.getContext('2d')
+    context.strokeStyle = 'red'
+    context.fillStyle = '#17a05d'
+
+    // 绘制的两种矩形，矩形是唯一可以直接画出来的
+    // context.lineJoin = 'bevel'
+    // context.lineWidth = 10
+    // context.fillRect(50,50,100,100)
+    // context.strokeRect(25,25,100,100)
+
+    // 路径
+    //创建路径
+    context.beginPath()
+    context.arc(100,100,99,0,2 * Math.PI,false)
+    context.moveTo(194,100)
+    context.arc(100,100,94,0,2*Math.PI,false)
+    context.stroke()
   </script>
 </body>
 </html>
