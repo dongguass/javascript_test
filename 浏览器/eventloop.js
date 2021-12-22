@@ -1,0 +1,10 @@
+console.log('宏任务')
+setTimeout(()=>{
+  console.log('timer')
+},0)
+setImmediate(()=>{
+  console.log('check')
+})
+process.nextTick(()=>{
+  console.log('nexttick')
+})
