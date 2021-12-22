@@ -5,15 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #drawing{
+      margin: auto;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <canvas id="drawing" style="height: 300px;">A drowing of something</canvas>
+  <div style="width: 100%;">
+    <canvas id="drawing" width="200" height="200">A drowing of something</canvas>
+  </div>
   <script>
     /** @type {HTMLCanvasElement} */
     let draw = document.getElementById('drawing')
     let context = draw.getContext('2d')
-    context.strokeStyle = 'red'
-    context.fillStyle = '#17a05d'
+    // context.strokeStyle = 'red'
+    // context.fillStyle = 'black'
 
     // 绘制的两种矩形，矩形是唯一可以直接画出来的
     // context.lineJoin = 'bevel'
@@ -21,13 +29,41 @@
     // context.fillRect(50,50,100,100)
     // context.strokeRect(25,25,100,100)
 
-    // 路径
+    // 路径画时钟
     //创建路径
-    context.beginPath()
-    context.arc(100,100,99,0,2 * Math.PI,false)
-    context.moveTo(194,100)
-    context.arc(100,100,94,0,2*Math.PI,false)
-    context.stroke()
+    // context.beginPath()
+    // context.arc(100,100,99,0,2 * Math.PI,false)
+    // context.moveTo(194,100)
+    // context.arc(100,100,94,0,2*Math.PI,false)
+    // // 将原点移到100，100
+    // context.translate(100,100)
+    // // 绘制文本
+    // context.font = 'bold 14px Arial'
+    // context.textAlign = 'center'
+    // context.textBaseline = 'middle'
+    // context.fillText('12',0,-85)
+    // // 旋转围绕原点把绘制的图像旋转针对后面的绘制！
+    // context.rotate(1)
+    // context.moveTo(0,0)
+    // context.lineTo(0,-85)
+    // context.moveTo(0,0)
+    // context.lineTo(-65,0)
+    // context.stroke()
+
+    // save 和 restore的用法
+    // context.fillStyle ="#ff0000"
+    // context.save()
+    // context.fillStyle = "#00ff00"
+    // context.translate(100,100)
+    // context.save()
+    // context.fillStyle = "#0000ff"
+    // context.fillRect(0,0,100,100)
+    // context.restore()
+    // context.fillRect(10,10,100,100)
+    // context.restore()
+    // context.fillRect(0,0,100,100)
+
+    let 
   </script>
 </body>
 </html>
