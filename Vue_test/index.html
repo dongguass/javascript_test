@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<div id="app">
+  <span v-once> 只会修改一次:{{ data.a }}</span>
+  <p>use v-html: <span v-html='rawhtml'></span></p>
+  <span>{{ reversedMessage }}</span>
+</div>
+<body>
+  <script>
+    let data = {
+      a: 2,
+      rawhtml: '',
+      message: 'wdaidawd'
+    }
+    let vm = new Vue({
+      el : '#app',
+      data: data,
+      computed: {
+        reversedMessage : function(){
+          return this.message.split('').reverse().join('')
+        }
+      }
+    })
+    vm.rawhtml = '<span style="color: red;">这是红的</span>'
+    // 计算属性实现原理
+    // Object.defineProperty(vm,'reversedMessage',{
+    //   get(){
+    //     return vm.message.split('').reverse().join('')
+    //   }
+    // })
+    //模板语法不能用在HTML属性上，要使用v-bind绑定变量作为属性
+
+  </script>
+</body>
+</html>
