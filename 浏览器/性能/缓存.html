@@ -7,6 +7,26 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <script>
+    // 编码
+    function encode64(obj) {
+      if (Object.prototype.toString.call(obj) !== '[object Object]') {
+        return ''
+      }
+      return {
+        data: btoa(encodeURIComponent(JSON.stringify(obj)))
+      }
+    }
+    function decode64(arg) {
+      console.log(arg)
+      if (Object.prototype.toString.call(arg) !== '[object Object]' || !arg.areaData) {
+        return ''
+      }
+      console.log(JSON.parse(decodeURIComponent(atob(arg.areaData))))
+      return JSON.parse(decodeURIComponent(atob(arg.areaData)))
+    }
+    let result = encode64({area:'sy'})
+    console.log(result)
+  </script>
 </body>
 </html>

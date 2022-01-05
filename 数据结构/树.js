@@ -37,5 +37,33 @@ class BinarySearchTree{
     this.root = null
   }
 
-  insert
+  insert(key){
+    // 如果根节点为空，则直接用作根节点
+    if(this.root == null){
+      this.root = new Node(key)
+    }else{
+      // 节点添加到根节点以外的其他位置，调用辅助函数
+      this.insertNode(this.root,key)
+    }
+  }
+
+  // 传进来的node，是准备插入的key的父节点或者根节点
+  insertNode(node,key){
+    // 二叉搜索树，左边比父节点小，右边比父节点大
+    if(this.campareFn(key,node.key)===Compare.LESS_THAN){
+      if(node.left===null){
+        node.left = new Node(key)
+      }else{
+        // 当node.left有节点时，需要再次递归调用
+        this.insertNode(node.left,key)
+      }
+      // 此时要插在右节点
+    }else{
+      if(node.right === null){
+        node.right = new Node(key)
+      }else{
+        this.insertNode(node.right,key)
+      }
+    }
+  }
 }
