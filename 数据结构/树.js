@@ -66,4 +66,69 @@ class BinarySearchTree{
       }
     }
   }
+
+  // 中序遍历
+  inOrderTraverse(callback){
+    //先传入根节点，这个方法是遍历的主方法
+    this.inOrderTraverseNode(this.root,callback)
+  }
+
+  inOrderTraverseNode(node,callback){
+    // 判断传入的节点是否为null，这就是递归的基线条件
+    if(node!==null){
+      // 从根节点开始只要有左子节点就不停的递归调用这个函数
+      // 函数不断地入栈直到node.left为null，开始退栈
+      this.inOrderTraverseNode(node.left,callback)
+      // 对传入的node的操作
+      callback(node.key)
+      // 同上上一步
+      this.inOrderTraverseNode(node.right,callback)
+    }
+  }
+
+  // 先序遍历
+  preOrdertraverse(callback){
+    this.preOrdertraverseNode(this.root,callback)
+  }
+
+  preOrdertraverseNode(node,callback){
+    callback(node.key)
+    this.preOrdertraverseNode(node.left,callback)
+    this.preOrdertraverseNode(node.right,callback)
+  }
+
+  // 后序遍历
+  postOrdertraverse(callback){
+    this.postOrdertraverseNode(this.root,callback)
+  }
+
+  postOrdertraverseNode(node,callback){
+    callback(node.key)
+    this.postOrdertraverseNode(node.left,callback)
+    this.postOrdertraverseNode(node.right,callback)
+  }
 }
+
+
+const tree = new BinarySearchTree()
+tree.insert(11)
+tree.insert(7)
+tree.insert(15)
+tree.insert(5)
+tree.insert(3)
+tree.insert(9)
+tree.insert(8)
+tree.insert(10)
+tree.insert(13)
+tree.insert(12)
+tree.insert(14)
+tree.insert(20)
+tree.insert(18)
+tree.insert(25)
+tree.insert(6)
+console.log(tree)
+
+tree.inOrderTraverse((value)=>{
+  console.log(value)
+})
+
