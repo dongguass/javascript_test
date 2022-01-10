@@ -62,11 +62,17 @@ class ValuePair{
   }
 }
 
-const d = new Dictionary()
-d.set('kkk','jjj')
-d.set('2kk','jjj')
-d.set('3kk','jjj')
-d.set('4kk','jjj')
-console.log(d)
-console.log(d.hasKey('kkk'))
-console.log(d.keyValues())
+module.exports = {
+  Dictionary,
+  ValuePair,
+  defaultToString
+}
+
+// const d = new Dictionary()
+// d.set('kkk','jjj')
+// d.set('2kk','jjj')
+// d.set('3kk','jjj')
+// d.set('4kk','jjj')
+// console.log(d)
+// console.log(d.hasKey('kkk'))
+// console.log(d.keyValues())
