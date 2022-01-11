@@ -62,6 +62,21 @@ class Graph {
   }
 }
 
+// 定义颜色区分遍历
+const Colors = {
+  WHITE:0,
+  GREY:1,
+  BLACK:2
+}
+
+const initializeColor = vertices =>{
+  const color ={}
+  for(let i = 0; i<vertices.lengt;i++){
+    color[vertices[i]] = Colors.WHITE
+  }
+  return color
+}
+
 const graph = new Graph()
 const myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
 
