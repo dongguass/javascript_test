@@ -1,10 +1,10 @@
-console.log('宏任务')
-setTimeout(()=>{
-  console.log('timer')
-},0)
-setImmediate(()=>{
-  console.log('check')
-})
-process.nextTick(()=>{
-  console.log('nexttick')
-})
+const a = {
+  name : 'ydh'
+}
+
+let b = ['a','b']
+
+console.log(a.toString())
+
+console.log(b.toString())
+
