@@ -27,7 +27,7 @@ app.post('/jsons',(req,res)=>{
     'Access-Control-Allow-Origin':'*',
     "Access-Control-Allow-Methods":"POST, GET, PUT, OPTIONS, DELETE"
   })
-  // console.log(req.body)
+  console.log(req.body)
   res.send(data)
 })
 
